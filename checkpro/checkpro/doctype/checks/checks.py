@@ -32,7 +32,7 @@ class Checks(Document):
             })
             vadd_check.append("fields",{
             "fieldtype":"Data",
-            "label":"Customer",
+            "label":"Client",
             "read_only":1,
             "mandatory_depends_on":"eval:!doc.__islocal",
             "in_standard_filter":1
@@ -40,7 +40,7 @@ class Checks(Document):
             vadd_check.append("fields",{
             "fieldtype":"Data",
             "mandatory_depends_on":"eval:!doc.__islocal",
-            "label":"Customer Shortcode",
+            "label":"Client Shortcode",
             "read_only":1
             })
             vadd_check.append("fields",{
@@ -55,7 +55,7 @@ class Checks(Document):
             vadd_check.append("fields",{
             "fieldtype":"Select",
             "label":"Report Status",
-            "options":"\nPending\nPositive\nNegative\nDilemma\nInterim",
+            "options":"\nPending\nPositive\nAlert\nDilemma\nInterim",
             "default":"Pending",
             "mandatory_depends_on":"eval:!doc.__islocal"+'&&'+ "doc.workflow_state ==" +'"Pending for Verification"',
             "read_only_depends_on":"eval:doc.workflow_state ==" +'"Pending for Approval"'+ '||'+"doc.workflow_state ==" +'"Approved"',
@@ -186,20 +186,39 @@ class Checks(Document):
         
             for c in self.check_variables:
                 if c.variable_type=="Select":
+                    frappe.errprint(c.variable.replace(" ","_"))
                     vadd_check.append("fields",{
                         "fieldtype":"Select",
                         "options":'\n'+ c.options,
                         "label":"""EPI :"""+c.variable,
-                        "fieldname":"epi_"+c.variable,
+                        "fieldname":"epi_"+c.variable.replace(" ", "_"),
                         # "mandatory_depends_on":"eval:!doc.__islocal && doc.workflow_state == 'Draft' """,
                         "mandatory_depends_on":"eval:!doc.__islocal"+'&&'+ "doc.workflow_state ==" +'"Draft"',
                         "read_only_depends_on":"eval:doc.workflow_state!=" +'"Draft"'
                         })
+                if c.variable_type=="Phone":
+                    vadd_check.append("fields",{
+                        "fieldtype":"Data",
+                        "label":"""EPI :"""+c.variable,
+                        "options":"Phone",
+                        "fieldname":"epi_"+c.variable.replace(" ", "_"),
+                        "mandatory_depends_on":"eval:!doc.__islocal && doc.workflow_state ==" +'"Draft"',
+                        "read_only_depends_on":"eval:doc.workflow_state!=" +'"Draft"'
+                    })
+                if c.variable_type=="Email":
+                    vadd_check.append("fields",{
+                        "fieldtype":"Data",
+                        "label":"""EPI :"""+c.variable,
+                        "options":"Email",
+                        "fieldname":"epi_"+c.variable.replace(" ", "_"),
+                        "mandatory_depends_on":"eval:!doc.__islocal && doc.workflow_state ==" +'"Draft"',
+                        "read_only_depends_on":"eval:doc.workflow_state!=" +'"Draft"'
+                    })
                 if c.variable_type=="Number":
                     vadd_check.append("fields",{
                         "fieldtype":"Int",
                         "label":"""EPI :"""+c.variable,
-                        "fieldname":"epi_"+c.variable,
+                        "fieldname":"epi_"+c.variable.replace(" ", "_"),
                         "mandatory_depends_on":"eval:!doc.__islocal && doc.workflow_state ==" +'"Draft"',
                         "read_only_depends_on":"eval:doc.workflow_state!=" +'"Draft"'
                     })
@@ -207,7 +226,7 @@ class Checks(Document):
                     vadd_check.append("fields",{
                         "fieldtype":"Small Text",
                         "label":'EPI'+ " :"+c.variable,
-                        "fieldname":"epi_"+c.variable,
+                        "fieldname":"epi_"+c.variable.replace(" ", "_"),
                         "mandatory_depends_on":"eval:!doc.__islocal" + '&&' + "doc.workflow_state ==" +'"Draft"',
                         "read_only_depends_on":"eval:doc.workflow_state!=" +'"Draft"'
                     })
@@ -216,7 +235,7 @@ class Checks(Document):
                         vadd_check.append("fields",{
                             "fieldtype":"Data",
                             "label":'EPI'+" :" +c.variable,
-                            "fieldname":"epi_"+c.variable,
+                            "fieldname":"epi_"+c.variable.replace(" ", "_"),
                             "mandatory_depends_on":"eval:!doc.__islocal" + '&&' + "doc.workflow_state ==" +'"Draft"',
                             "read_only_depends_on":"eval:doc.workflow_state!=" +'"Draft"'
                         })
@@ -224,7 +243,7 @@ class Checks(Document):
                     vadd_check.append("fields",{
                 	    "fieldtype":"Date",
                 	    "label":'EPI'+ " :"+c.variable,
-                        "fieldname":"epi_"+c.variable,
+                        "fieldname":"epi_"+c.variable.replace(" ", "_"),
                         "mandatory_depends_on":"eval:!doc.__islocal" + '&&' + "doc.workflow_state ==" +'"Draft"',
                         "read_only_depends_on":"eval:doc.workflow_state!=" +'"Draft"'
                     })
@@ -232,7 +251,7 @@ class Checks(Document):
                     vadd_check.append("fields",{
                 	    "fieldtype":"Section Break",
                         "label":'EPI'+ " :"+c.variable,
-                        "fieldname":"epi_"+c.variable,
+                        "fieldname":"epi_"+c.variable.replace(" ", "_"),
                         "mandatory_depends_on":"eval:!doc.__islocal" + '&&' + "doc.workflow_state ==" +'"Draft"',
                         "read_only_depends_on":"eval:doc.workflow_state!=" +'"Draft"'
                     })
@@ -240,7 +259,7 @@ class Checks(Document):
                     vadd_check.append("fields",{
                 	    "fieldtype":"Column Break",
                         "label":'EPI'+ " :"+c.variable,
-                        "fieldname":"epi_"+c.variable,
+                        "fieldname":"epi_"+c.variable.replace(" ", "_"),
                         "mandatory_depends_on":"eval:!doc.__islocal"+ '&&' + "doc.workflow_state ==" +'"Draft"',
                         "read_only_depends_on":"eval:doc.workflow_state!=" +'"Draft"'
                     })
@@ -248,7 +267,16 @@ class Checks(Document):
                     vadd_check.append("fields",{
                 	    "fieldtype":"Link",
                         "label":'EPI'+ ":"+c.variable,
-                        "fieldname":"epi_"+c.variable,
+                        "fieldname":"epi_"+c.variable.replace(" ", "_"),
+                        "options":c.options,
+                        "mandatory_depends_on":"eval:!doc.__islocal" + '&&' + "doc.workflow_state ==" +'"Draft"',
+                        "read_only_depends_on":"eval:doc.workflow_state!=" +'"Draft"'
+                    })
+                if c.variable_type=="Attach":
+                    vadd_check.append("fields",{
+                	    "fieldtype":"Attach",
+                        "label":'EPI'+ ":"+c.variable,
+                        "fieldname":"epi_"+c.variable.replace(" ", "_"),
                         "options":c.options,
                         "mandatory_depends_on":"eval:!doc.__islocal" + '&&' + "doc.workflow_state ==" +'"Draft"',
                         "read_only_depends_on":"eval:doc.workflow_state!=" +'"Draft"'
@@ -272,7 +300,27 @@ class Checks(Document):
                         "fieldtype":"Select",
                         "options":'\n'+c.options,
                         "label":'VPI'+ ":"+c.variable,
-                        "fieldname":"vpi_"+c.variable,
+                        "fieldname":"vpi_"+c.variable.replace(" ", "_"),
+                        "permlevel":1,
+                        "mandatory_depends_on":"eval:!doc.__islocal"+ '&&'+"doc.workflow_state ==" +'"Pending for Verification"',
+                        "read_only_depends_on":"eval:doc.workflow_state ==" +'"Pending for Approval"'+ '||'+"doc.workflow_state ==" +'"Approved"'
+                    })
+                if c.variable_type=="Phone":
+                    vadd_check.append("fields",{
+                        "fieldtype":"Data",
+                        "label":"""VPI :"""+c.variable,
+                        "options":"Phone",
+                        "fieldname":"vpi_"+c.variable.replace(" ", "_"),
+                        "permlevel":1,
+                        "mandatory_depends_on":"eval:!doc.__islocal"+ '&&'+"doc.workflow_state ==" +'"Pending for Verification"',
+                        "read_only_depends_on":"eval:doc.workflow_state ==" +'"Pending for Approval"'+ '||'+"doc.workflow_state ==" +'"Approved"'
+                    })
+                if c.variable_type=="Email":
+                    vadd_check.append("fields",{
+                        "fieldtype":"Data",
+                        "label":"""VPI :"""+c.variable,
+                        "options":"Email",
+                        "fieldname":"vpi_"+c.variable.replace(" ", "_"),
                         "permlevel":1,
                         "mandatory_depends_on":"eval:!doc.__islocal"+ '&&'+"doc.workflow_state ==" +'"Pending for Verification"',
                         "read_only_depends_on":"eval:doc.workflow_state ==" +'"Pending for Approval"'+ '||'+"doc.workflow_state ==" +'"Approved"'
@@ -281,7 +329,7 @@ class Checks(Document):
                     vadd_check.append("fields",{
                         "fieldtype":"Int",
                         "label":'VPI'+ ":"+c.variable,
-                        "fieldname":"vpi_"+c.variable,
+                        "fieldname":"vpi_"+c.variable.replace(" ", "_"),
                         "permlevel":1,
                         "mandatory_depends_on":"eval:!doc.__islocal"+'&&'+'doc.workflow_state ==' +'"Pending for Verification"',
                         "read_only_depends_on":"eval:doc.workflow_state ==" +'"Pending for Approval"'+ '||'+"doc.workflow_state ==" +'"Approved"'
@@ -291,7 +339,7 @@ class Checks(Document):
                     vadd_check.append("fields",{
                         "fieldtype":"Small Text",
                         "label":'VPI'+ ":"+c.variable,
-                        "fieldname":"vpi_"+c.variable,
+                        "fieldname":"vpi_"+c.variable.replace(" ", "_"),
                         "permlevel":1,
                         "mandatory_depends_on":"eval:!doc.__islocal"+'&&'+'doc.workflow_state ==' +'"Pending for Verification"',
                         "read_only_depends_on":"eval:doc.workflow_state ==" +'"Pending for Approval"'+ '||'+"doc.workflow_state ==" +'"Approved"'
@@ -301,7 +349,7 @@ class Checks(Document):
                         vadd_check.append("fields",{
                             "fieldtype":"Data",
                             "label":'VPI'+ ":"+c.variable,
-                            "fieldname":"vpi_"+c.variable,
+                            "fieldname":"vpi_"+c.variable.replace(" ", "_"),
                             "permlevel":1,
                             "mandatory_depends_on":"eval:!doc.__islocal"+'&&'+'doc.workflow_state ==' +'"Pending for Verification"',
                             "read_only_depends_on":"eval:doc.workflow_state ==" +'"Pending for Approval"'+ '||'+"doc.workflow_state ==" +'"Approved"'
@@ -311,7 +359,7 @@ class Checks(Document):
                     vadd_check.append("fields",{
                         "fieldtype":"Date",
                         "label":'VPI'+ ":"+c.variable,
-                        "fieldname":"vpi_"+c.variable,
+                        "fieldname":"vpi_"+c.variable.replace(" ", "_"),
                         "permlevel":1,
                         "mandatory_depends_on":"eval:!doc.__islocal"+'&&'+'doc.workflow_state ==' +'"Pending for Verification"',
                         "read_only_depends_on":"eval:doc.workflow_state =="+'"Pending for Approval"'+ '||'+"doc.workflow_state ==" +'"Approved"'
@@ -321,7 +369,7 @@ class Checks(Document):
                     vadd_check.append("fields",{
                         "fieldtype":"Section Break",
                         "label":'VPI'+ ":"+c.variable,
-                        "fieldname":"vpi_"+c.variable,
+                        "fieldname":"vpi_"+c.variable.replace(" ", "_"),
                         "permlevel":1,
                         "mandatory_depends_on":"eval:!doc.__islocal"+'&&'+'doc.workflow_state ==' +'"Pending for Verification"',
                         "read_only_depends_on":"eval:doc.workflow_state ==" +'"Pending for Approval"'+ '||'+"doc.workflow_state ==" +'"Approved"'
@@ -331,7 +379,7 @@ class Checks(Document):
                     vadd_check.append("fields",{
                         "fieldtype":"Column Break",
                         "label":'VPI'+ ":"+c.variable,
-                        "fieldname":"vpi_"+c.variable,
+                        "fieldname":"vpi_"+c.variable.replace(" ", "_"),
                         "permlevel":1,
                         "mandatory_depends_on":"eval:!doc.__islocal"+'&&'+'doc.workflow_state ==' +'"Pending for Verification"',
                         "read_only_depends_on":"eval:doc.workflow_state ==" +'"Pending for Approval"'+ '||'+"doc.workflow_state ==" +'"Approved"'
@@ -340,7 +388,17 @@ class Checks(Document):
                     vadd_check.append("fields",{
                         "fieldtype":"Link",
                         "label":'VPI'+ ":"+c.variable,
-                        "fieldname":"vpi_"+c.variable,
+                        "fieldname":"vpi_"+c.variable.replace(" ", "_"),
+                        "options":c.options,
+                        "permlevel":1,
+                        "mandatory_depends_on":"eval:!doc.__islocal"+'&&'+'doc.workflow_state ==' +'"Pending for Verification"',
+                        "read_only_depends_on":"eval:doc.workflow_state ==" +'"Pending for Approval"'+ '||'+"doc.workflow_state ==" +'"Approved"'
+                    })
+                if c.variable_type=="Attach":
+                    vadd_check.append("fields",{
+                        "fieldtype":"Attach",
+                        "label":'VPI'+ ":"+c.variable,
+                        "fieldname":"vpi_"+c.variable.replace(" ", "_"),
                         "options":c.options,
                         "permlevel":1,
                         "mandatory_depends_on":"eval:!doc.__islocal"+'&&'+'doc.workflow_state ==' +'"Pending for Verification"',
@@ -363,7 +421,7 @@ class Checks(Document):
                     "fieldtype":"Select",
                     "options": "\nPositive\nNegative\nDilemma",
                     "label":c.variable +":"+"Line Status",
-                    "fieldname":c.variable +"_line_status",
+                    "fieldname":c.variable.replace(" ", "_")+"_line_status",
                     "mandatory_depends_on":"eval:!doc.__islocal"+ '&&' + "doc.workflow_state ==" +'"Pending for Verification"',
                     "read_only_depends_on":"eval:doc.workflow_state ==" +'"Pending for Approval"'+ '||'+"doc.workflow_state ==" +'"Approved"',
                     "permlevel":1
@@ -447,18 +505,16 @@ class Checks(Document):
             })
             vadd_check.append("fields",{
             "fieldtype":"Section Break",
-            "depends_on":"eval:doc.workflow_state ==" +'"Pending for Approval"'
             }) 
             vadd_check.append("fields",{
             "fieldtype":"Link",
             "options":"User",
             "label":"Approved By",
             "read_only_depends_on":"eval:doc.workflow_state ==" +'"Approved"',
-            "depends_on":"eval:doc.workflow_state ==" +'"Pending for Approval"'+'||'+'doc.workflow_state ==' +'"Approved"',
+            "mandatory_depends_on":"eval:doc.workflow_state ==" +'"Pending for Approval"'+'||'+'doc.workflow_state ==' +'"Approved"',
             })
             vadd_check.append("fields",{
             "fieldtype":"Column Break",
-            "depends_on":"doc.workflow_state =="+'"Pending for Approval"',
             })
             vadd_check.append("fields",{
             "fieldtype":"Data",
@@ -466,7 +522,7 @@ class Checks(Document):
             "read_only_depends_on":"eval:doc.workflow_state ==" +'"Approved"',
             "fieldname":"approved_designation",
             "fetch_from":"approved_by.first_name",
-            "depends_on":"eval:doc.workflow_state ==" +'"Pending for Approval"'+'||'+'doc.workflow_state ==' +'"Approved"',
+            "mandatory_depends_on":"eval:doc.workflow_state ==" +'"Pending for Approval"'+'||'+'doc.workflow_state ==' +'"Approved"',
             })
 
             vadd_check.append("permissions",{
@@ -487,6 +543,12 @@ class Checks(Document):
                 "write":1,
                 "delete":1
             })
+            vadd_check.append("permissions",{
+                "role":"Approver",
+                "read":1,
+                "write":1,
+                "delete":1
+            })
             vadd_check.flags.ignore_mandatory=True
             vadd_check.save(ignore_permissions=True)
             doctype = vadd_check.name
@@ -499,6 +561,7 @@ class Checks(Document):
                 wf.workflow_name=vadd_check.name
                 wf.document_type=vadd_check.name
                 wf.is_active=1
+                wf.send_email_alert=0
                 wf.append("states",{
                     "state":"Draft",
                     "allow_edit":"System Manager"
@@ -537,7 +600,7 @@ class Checks(Document):
                     "state":"Pending for Verification",
                     "action":"VPI QC",
                     "next_state":"Pending for Approval",
-                    "condition":"""doc.report_status=="Positive" and doc.verification_status=="Completed" """,
+                    "condition":"""doc.report_status!="Pending" and doc.verification_status=="Completed" """,
                     "allowed":"Check Executive"
                 })
                 wf.append("transitions",{

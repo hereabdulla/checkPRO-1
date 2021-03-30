@@ -20,11 +20,11 @@ class Case(Document):
                     # frappe.errprint(cp_check)
                     for unit in range(int(cp_check.units)):
                         check =frappe.get_value("Checks",cp_check.check_name,["ce_tat"])
-                        sh =frappe.get_value("Customer",self.customer,["short_code"])
+                        sh =frappe.get_value("Client",self.client,["short_code"])
                         create_verify_check = frappe.new_doc(cp_check.check_name)
                         create_verify_check.ce_tatdays= check,
-                        create_verify_check.customer=self.customer,
-                        create_verify_check.customer_shortcode=sh,
+                        create_verify_check.client=self.client,
+                        create_verify_check.client_shortcode=sh,
                         create_verify_check.check_package=self.check_package,
                         create_verify_check.batch=self.batch,
                         create_verify_check.case_id=self.name,

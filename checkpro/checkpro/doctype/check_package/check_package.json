@@ -25,11 +25,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Customer",
-<<<<<<< HEAD
    "options": "Client",
-=======
-   "options": "Customer",
->>>>>>> b905aa19a3840fc71aca9c7a679b29f3eba6f7fc
    "reqd": 1
   },
   {
@@ -104,11 +100,7 @@
   }
  ],
  "links": [],
-<<<<<<< HEAD
  "modified": "2021-03-05 19:24:48.845325",
-=======
- "modified": "2021-02-20 11:02:02.356474",
->>>>>>> b905aa19a3840fc71aca9c7a679b29f3eba6f7fc
  "modified_by": "Administrator",
  "module": "Checkpro",
  "name": "Check Package",

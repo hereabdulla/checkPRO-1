@@ -174,8 +174,8 @@ frappe.ui.form.on('Case', {
 					else if (rs.includes("Dilemma")) {
 						frm.set_value("case_report", "Dilemma")
 					}
-					else if (rs.includes("Negative")) {
-						frm.set_value("case_report", "Negative")
+					else if (rs.includes("Alert")) {
+						frm.set_value("case_report", "Alert")
 					}
 					else if (rs.every(e => e == "Positive")) {
 						frm.set_value("case_report", "Positive")

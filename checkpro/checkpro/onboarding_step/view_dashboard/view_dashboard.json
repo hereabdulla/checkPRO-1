@@ -1,6 +1,6 @@
 {
- "action": "Go to Page",
- "creation": "2020-11-26 14:54:10.428807",
+ "action": "Create Entry",
+ "creation": "2021-03-09 18:55:10.205749",
  "docstatus": 0,
  "doctype": "Onboarding Step",
  "idx": 0,
@@ -8,11 +8,10 @@
  "is_mandatory": 0,
  "is_single": 0,
  "is_skipped": 0,
- "modified": "2020-11-26 14:54:10.428807",
+ "modified": "2021-03-09 18:55:10.205749",
  "modified_by": "Administrator",
  "name": "View Dashboard",
  "owner": "Administrator",
- "path": "#dashboard/checkPRO",
  "show_full_form": 0,
  "title": "View Dashboard",
  "validate_action": 1

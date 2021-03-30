@@ -4,16 +4,16 @@
    "role": "Customer"
   }
  ],
- "creation": "2020-11-26 14:54:20.035510",
+ "creation": "2021-03-09 18:55:31.667518",
  "docstatus": 0,
  "doctype": "Module Onboarding",
  "documentation_url": "https://docs.erpnext.com/docs/user/manual/en/website",
  "idx": 0,
  "is_complete": 0,
- "modified": "2020-11-26 14:54:20.035510",
+ "modified": "2021-03-09 18:55:31.667518",
  "modified_by": "Administrator",
  "module": "Checkpro",
- "name": "checkPRO",
+ "name": "Checkpro",
  "owner": "Administrator",
  "steps": [
   {

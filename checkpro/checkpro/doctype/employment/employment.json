@@ -1,7 +1,7 @@
 {
  "actions": [],
- "autoname": "Education-.###",
- "creation": "2021-03-25 17:53:50.530759",
+ "autoname": "Employment-.###",
+ "creation": "2021-03-25 16:34:10.534297",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
@@ -32,67 +32,88 @@
   "client_employee_code",
   "address",
   "section_break_26",
-  "epi_student_name",
-  "epi_register_no",
-  "epi_college_name",
-  "epi_university_name",
-  "epi_degree",
-  "epi_specialization",
-  "epi_course_period",
-  "epi_year_of_passed",
-  "epi_communication_skill",
-  "epi_credit_score",
-  "epi_verified_by",
+  "epi_employer_name",
+  "epi_employer_address",
+  "epi_employer_contact",
+  "epi_employee_code",
+  "epi_employment_type",
   "epi_designation",
+  "epi_period_of_employment",
+  "epi_date_of_joining",
+  "epi_date_of_relieving",
+  "epi_relieving_status",
+  "epi_reason_for_leaving",
+  "epi_ctc_drawn",
+  "epi_character_and_conduct",
+  "epi_behavior_with_colleagues",
+  "epi_reporting_persons_name",
+  "epi_reporting_persons_designation",
+  "epi_gaps_in_employment",
+  "epi_verified_by",
+  "epi_verifier_designation",
   "epi_verifier_contact_number",
   "epi_verifier_mail_id",
-  "column_break_43",
-  "vpi_student_name",
-  "vpi_register_no",
-  "vpi_college_name",
-  "vpi_university_name",
-  "vpi_degree",
-  "vpd_specialization",
-  "vpi_course_period",
-  "vpi_year_of_passed",
-  "vpi_communication_skill",
-  "vpi_credit_score",
-  "vpi_verified_by",
+  "column_break_50",
+  "vpi_employer_name",
+  "vpi_employer_address",
+  "vpi_employer_contact",
+  "vpi_employee_code",
+  "vpi_employment_type",
   "vpi_designation",
+  "vpi_period_of_employment",
+  "vpi_date_of_joining",
+  "vpi_date_of_relieving",
+  "vpi_relieving_status",
+  "vpi_reason_for_leaving",
+  "vpi_ctc_drawn",
+  "vpi_character_and_conduct",
+  "vpi_behavior_with_colleagues",
+  "vpi_reporting_persons_name",
+  "vpi_reporting_persons_designation",
+  "vpi_gaps_in_employment",
+  "vpi_verified_by",
+  "vpi_verifier_designation",
   "vpi_verifier_contact_number",
   "vpi_verifier_mail_id",
-  "column_break_60",
-  "student_name_line_status",
-  "register_no_line_status",
-  "college_name_line_status",
-  "university_name_line_status",
-  "degree_line_status",
-  "specialization_line_status",
-  "course_period_line_status",
-  "year_of_passed_line_status",
-  "communication_skill_line_status",
-  "credit_score_line_status",
-  "verified_by_line_status",
+  "column_break_74",
+  "employer_name_line_status",
+  "employer_address_line_status",
+  "employer_contact_line_status",
+  "employee_code_line_status",
+  "employment_type_line_status",
   "designation_line_status",
+  "period_of_employment_line_status",
+  "date_of_joining_line_status",
+  "date_of_relieving_line_status",
+  "relieving_status_line_status",
+  "reason_for_leaving_line_status",
+  "ctc_drawn_line_status",
+  "character_and_conduct_line_status",
+  "behavior_with_colleagues_line_status",
+  "reporting_persons_name_line_status",
+  "reporting_persons_designation_line_status",
+  "gaps_in_employment_line_status",
+  "verified_by_line_status",
+  "verifier_designation_line_status",
   "verifier_contact_number_line_status",
   "verifier_mail_id_line_status",
-  "section_break_77",
+  "section_break_98",
   "remarks",
-  "column_break_79",
+  "column_break_100",
   "attachment",
   "entry_details_section",
   "entered_by",
-  "column_break_83",
+  "column_break_104",
   "entry_designation",
   "verification_details_section",
   "verified_by",
   "designation",
-  "column_break_88",
+  "column_break_109",
   "start_date",
   "date_of_completion",
-  "section_break_91",
+  "section_break_112",
   "approved_by",
-  "column_break_93",
+  "column_break_114",
   "approved_designation"
  ],
  "fields": [
@@ -268,76 +289,126 @@
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "epi_student_name",
+   "fieldname": "epi_employer_name",
    "fieldtype": "Data",
-   "label": "EPI :Student Name",
+   "label": "EPI :Employer Name",
    "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Draft\"",
    "read_only_depends_on": "eval:doc.workflow_state!=\"Draft\""
   },
   {
-   "fieldname": "epi_register_no",
+   "fieldname": "epi_employer_address",
+   "fieldtype": "Small Text",
+   "label": "EPI :Employer Address",
+   "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Draft\"",
+   "read_only_depends_on": "eval:doc.workflow_state!=\"Draft\""
+  },
+  {
+   "fieldname": "epi_employer_contact",
    "fieldtype": "Data",
-   "label": "EPI :Register No",
-   "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Draft\"",
-   "read_only_depends_on": "eval:doc.workflow_state!=\"Draft\""
-  },
-  {
-   "fieldname": "epi_college_name",
-   "fieldtype": "Data",
-   "label": "EPI :College Name",
-   "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Draft\"",
-   "read_only_depends_on": "eval:doc.workflow_state!=\"Draft\""
-  },
-  {
-   "fieldname": "epi_university_name",
-   "fieldtype": "Data",
-   "label": "EPI :University Name",
-   "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Draft\"",
-   "read_only_depends_on": "eval:doc.workflow_state!=\"Draft\""
-  },
-  {
-   "fieldname": "epi_degree",
-   "fieldtype": "Link",
-   "label": "EPI:Degree",
-   "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Draft\"",
-   "options": "Qualification",
-   "read_only_depends_on": "eval:doc.workflow_state!=\"Draft\""
-  },
-  {
-   "fieldname": "epi_specialization",
-   "fieldtype": "Link",
-   "label": "EPI Specialization",
-   "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Draft\"",
-   "options": "Specialization",
-   "read_only_depends_on": "eval:doc.workflow_state!=\"Draft\""
-  },
-  {
-   "description": "(example:2000-2004)",
-   "fieldname": "epi_course_period",
-   "fieldtype": "Data",
-   "label": "EPI :Course Period-From-To",
+   "label": "EPI :Employer Contact",
    "mandatory_depends_on": "eval:!doc.__islocal && doc.workflow_state ==\"Draft\"",
+   "options": "Phone",
    "read_only_depends_on": "eval:doc.workflow_state!=\"Draft\""
   },
   {
-   "description": "(example:03/1996)",
-   "fieldname": "epi_year_of_passed",
+   "fieldname": "epi_employee_code",
    "fieldtype": "Data",
-   "label": "EPI :Year of Passed",
+   "label": "EPI :Employee Code",
    "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Draft\"",
    "read_only_depends_on": "eval:doc.workflow_state!=\"Draft\""
   },
   {
-   "fieldname": "epi_communication_skill",
-   "fieldtype": "Date",
-   "label": "EPI :Communication Skill",
+   "fieldname": "epi_employment_type",
+   "fieldtype": "Select",
+   "label": "EPI :Employment Type",
+   "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Draft\"",
+   "options": "\nPermanent\nTemporary\nContract\nOthers",
+   "read_only_depends_on": "eval:doc.workflow_state!=\"Draft\""
+  },
+  {
+   "fieldname": "epi_designation",
+   "fieldtype": "Data",
+   "label": "EPI :Designation",
    "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Draft\"",
    "read_only_depends_on": "eval:doc.workflow_state!=\"Draft\""
   },
   {
-   "fieldname": "epi_credit_score",
+   "fieldname": "epi_period_of_employment",
+   "fieldtype": "Float",
+   "label": "EPI :Period of Employment(Year. Month)",
+   "mandatory_depends_on": "eval:!doc.__islocal && doc.workflow_state ==\"Draft\"",
+   "precision": "2",
+   "read_only_depends_on": "eval:doc.workflow_state!=\"Draft\""
+  },
+  {
+   "fieldname": "epi_date_of_joining",
    "fieldtype": "Date",
-   "label": "EPI :Credit Score",
+   "label": "EPI :Date of Joining",
+   "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Draft\"",
+   "read_only_depends_on": "eval:doc.workflow_state!=\"Draft\""
+  },
+  {
+   "fieldname": "epi_date_of_relieving",
+   "fieldtype": "Date",
+   "label": "EPI :Date of Relieving",
+   "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Draft\"",
+   "read_only_depends_on": "eval:doc.workflow_state!=\"Draft\""
+  },
+  {
+   "fieldname": "epi_relieving_status",
+   "fieldtype": "Select",
+   "label": "EPI :Relieving Status",
+   "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Draft\"",
+   "options": "\nNA\nProperly as per Procedure\nAbsconded\nInitimated without Notice Period",
+   "read_only_depends_on": "eval:doc.workflow_state!=\"Draft\""
+  },
+  {
+   "fieldname": "epi_reason_for_leaving",
+   "fieldtype": "Data",
+   "label": "EPI :Reason for Leaving",
+   "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Draft\"",
+   "read_only_depends_on": "eval:doc.workflow_state!=\"Draft\""
+  },
+  {
+   "fieldname": "epi_ctc_drawn",
+   "fieldtype": "Float",
+   "label": "EPI :CTC Drawn - Per Year ( in Lakhs)",
+   "mandatory_depends_on": "eval:!doc.__islocal && doc.workflow_state ==\"Draft\"",
+   "precision": "2",
+   "read_only_depends_on": "eval:doc.workflow_state!=\"Draft\""
+  },
+  {
+   "fieldname": "epi_character_and_conduct",
+   "fieldtype": "Data",
+   "label": "EPI :Character and Conduct",
+   "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Draft\"",
+   "read_only_depends_on": "eval:doc.workflow_state!=\"Draft\""
+  },
+  {
+   "fieldname": "epi_behavior_with_colleagues",
+   "fieldtype": "Data",
+   "label": "EPI :Behavior with Colleagues",
+   "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Draft\"",
+   "read_only_depends_on": "eval:doc.workflow_state!=\"Draft\""
+  },
+  {
+   "fieldname": "epi_reporting_persons_name",
+   "fieldtype": "Data",
+   "label": "EPI :Reporting Person's Name",
+   "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Draft\"",
+   "read_only_depends_on": "eval:doc.workflow_state!=\"Draft\""
+  },
+  {
+   "fieldname": "epi_reporting_persons_designation",
+   "fieldtype": "Data",
+   "label": "EPI :Reporting Person's Designation",
+   "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Draft\"",
+   "read_only_depends_on": "eval:doc.workflow_state!=\"Draft\""
+  },
+  {
+   "fieldname": "epi_gaps_in_employment",
+   "fieldtype": "Data",
+   "label": "EPI :Gaps in Employment",
    "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Draft\"",
    "read_only_depends_on": "eval:doc.workflow_state!=\"Draft\""
   },
@@ -349,9 +420,9 @@
    "read_only_depends_on": "eval:doc.workflow_state!=\"Draft\""
   },
   {
-   "fieldname": "epi_designation",
+   "fieldname": "epi_verifier_designation",
    "fieldtype": "Data",
-   "label": "EPI :Designation",
+   "label": "EPI :Verifier Designation",
    "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Draft\"",
    "read_only_depends_on": "eval:doc.workflow_state!=\"Draft\""
   },
@@ -372,88 +443,146 @@
    "read_only_depends_on": "eval:doc.workflow_state!=\"Draft\""
   },
   {
-   "fieldname": "column_break_43",
+   "fieldname": "column_break_50",
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "vpi_student_name",
+   "fieldname": "vpi_employer_name",
    "fieldtype": "Data",
-   "label": "VPI:Student Name",
+   "label": "VPI:Employer Name",
    "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
    "permlevel": 1,
    "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
   },
   {
-   "fieldname": "vpi_register_no",
+   "fieldname": "vpi_employer_address",
+   "fieldtype": "Small Text",
+   "label": "VPI:Employer Address",
+   "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
+   "permlevel": 1,
+   "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
+  },
+  {
+   "fieldname": "vpi_employer_contact",
    "fieldtype": "Data",
-   "label": "VPI:Register No",
+   "label": "VPI :Employer Contact",
    "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
+   "options": "Phone",
    "permlevel": 1,
    "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
   },
   {
-   "fieldname": "vpi_college_name",
+   "fieldname": "vpi_employee_code",
    "fieldtype": "Data",
-   "label": "VPI:College Name",
+   "label": "VPI:Employee Code",
    "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
    "permlevel": 1,
    "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
   },
   {
-   "fieldname": "vpi_university_name",
+   "fieldname": "vpi_employment_type",
+   "fieldtype": "Select",
+   "label": "VPI:Employment Type",
+   "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
+   "options": "\nPermanent\nTemporary\nContract\nOthers",
+   "permlevel": 1,
+   "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
+  },
+  {
+   "fieldname": "vpi_designation",
    "fieldtype": "Data",
-   "label": "VPI:University Name",
+   "label": "VPI:Designation",
    "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
    "permlevel": 1,
    "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
   },
   {
-   "fieldname": "vpi_degree",
-   "fieldtype": "Link",
-   "label": "VPI:Degree",
-   "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
-   "options": "Qualification",
-   "permlevel": 1,
-   "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
-  },
-  {
-   "fieldname": "vpd_specialization",
-   "fieldtype": "Link",
-   "label": "VPD Specialization",
-   "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
-   "options": "Specialization",
-   "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
-  },
-  {
-   "description": "(example:2000-2004)",
-   "fieldname": "vpi_course_period",
-   "fieldtype": "Data",
-   "label": "VPI:Course Period-From-To",
+   "fieldname": "vpi_period_of_employment",
+   "fieldtype": "Float",
+   "label": "VPI:Period of Employment(Year. Month)",
    "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
    "permlevel": 1,
+   "precision": "2",
    "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
   },
   {
-   "description": "(example:03/1996)",
-   "fieldname": "vpi_year_of_passed",
-   "fieldtype": "Data",
-   "label": "VPI:Year of Passed",
-   "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
-   "permlevel": 1,
-   "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
-  },
-  {
-   "fieldname": "vpi_communication_skill",
+   "fieldname": "vpi_date_of_joining",
    "fieldtype": "Date",
-   "label": "VPI:Communication Skill",
+   "label": "VPI:Date of Joining",
    "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
    "permlevel": 1,
    "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
   },
   {
-   "fieldname": "vpi_credit_score",
+   "fieldname": "vpi_date_of_relieving",
    "fieldtype": "Date",
-   "label": "VPI:Credit Score",
+   "label": "VPI:Date of Relieving",
+   "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
+   "permlevel": 1,
+   "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
+  },
+  {
+   "fieldname": "vpi_relieving_status",
+   "fieldtype": "Select",
+   "label": "VPI:Relieving Status",
+   "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
+   "options": "\nNA\nProperly as per Procedure\nAbsconded\nInitimated without Notice Period",
+   "permlevel": 1,
+   "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
+  },
+  {
+   "fieldname": "vpi_reason_for_leaving",
+   "fieldtype": "Data",
+   "label": "VPI:Reason for Leaving",
+   "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
+   "permlevel": 1,
+   "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
+  },
+  {
+   "fieldname": "vpi_ctc_drawn",
+   "fieldtype": "Float",
+   "label": "VPI:CTC Drawn - Per Year ( in Lakhs)",
+   "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
+   "permlevel": 1,
+   "precision": "2",
+   "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
+  },
+  {
+   "fieldname": "vpi_character_and_conduct",
+   "fieldtype": "Data",
+   "label": "VPI:Character and Conduct",
+   "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
+   "permlevel": 1,
+   "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
+  },
+  {
+   "fieldname": "vpi_behavior_with_colleagues",
+   "fieldtype": "Data",
+   "label": "VPI:Behavior with Colleagues",
+   "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
+   "permlevel": 1,
+   "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
+  },
+  {
+   "fieldname": "vpi_reporting_persons_name",
+   "fieldtype": "Data",
+   "label": "VPI:Reporting Person's Name",
+   "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
+   "permlevel": 1,
+   "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
+  },
+  {
+   "fieldname": "vpi_reporting_persons_designation",
+   "fieldtype": "Data",
+   "label": "VPI:Reporting Person's Designation",
+   "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
+   "permlevel": 1,
+   "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
+  },
+  {
+   "fieldname": "vpi_gaps_in_employment",
+   "fieldtype": "Data",
+   "label": "VPI:Gaps in Employment",
    "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
    "permlevel": 1,
    "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
@@ -467,9 +596,9 @@
    "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
   },
   {
-   "fieldname": "vpi_designation",
+   "fieldname": "vpi_verifier_designation",
    "fieldtype": "Data",
-   "label": "VPI:Designation",
+   "label": "VPI:Verifier Designation",
    "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
    "permlevel": 1,
    "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
@@ -493,95 +622,158 @@
    "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
   },
   {
-   "fieldname": "column_break_60",
+   "fieldname": "column_break_74",
    "fieldtype": "Column Break",
    "permlevel": 1
   },
   {
-   "fieldname": "student_name_line_status",
+   "fieldname": "employer_name_line_status",
    "fieldtype": "Select",
-   "label": "Student Name:Line Status",
+   "label": "Employer Name:Line Status",
    "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
    "options": "\nPositive\nNegative\nDilemma",
    "permlevel": 1,
    "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
   },
   {
-   "fieldname": "register_no_line_status",
+   "fieldname": "employer_address_line_status",
    "fieldtype": "Select",
-   "label": "Register No:Line Status",
+   "label": "Employer Address:Line Status",
    "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
    "options": "\nPositive\nNegative\nDilemma",
    "permlevel": 1,
    "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
   },
   {
-   "fieldname": "college_name_line_status",
+   "fieldname": "employer_contact_line_status",
    "fieldtype": "Select",
-   "label": "College Name:Line Status",
+   "label": "Employer Contact:Line Status",
    "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
    "options": "\nPositive\nNegative\nDilemma",
    "permlevel": 1,
    "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
   },
   {
-   "fieldname": "university_name_line_status",
+   "fieldname": "employee_code_line_status",
    "fieldtype": "Select",
-   "label": "University Name:Line Status",
+   "label": "Employee Code:Line Status",
    "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
    "options": "\nPositive\nNegative\nDilemma",
    "permlevel": 1,
    "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
   },
   {
-   "fieldname": "degree_line_status",
+   "fieldname": "employment_type_line_status",
    "fieldtype": "Select",
-   "label": "Degree:Line Status",
+   "label": "Employment Type:Line Status",
    "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
    "options": "\nPositive\nNegative\nDilemma",
    "permlevel": 1,
    "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
   },
   {
-   "fieldname": "specialization_line_status",
+   "fieldname": "designation_line_status",
    "fieldtype": "Select",
-   "label": "Specialization:Line Status",
+   "label": "Designation:Line Status",
    "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
    "options": "\nPositive\nNegative\nDilemma",
    "permlevel": 1,
    "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
   },
   {
-   "fieldname": "course_period_line_status",
+   "fieldname": "period_of_employment_line_status",
    "fieldtype": "Select",
-   "label": "Course Period:Line Status",
+   "label": "Period of Employment(Year. Month):Line Status",
    "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
    "options": "\nPositive\nNegative\nDilemma",
    "permlevel": 1,
    "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
   },
   {
-   "fieldname": "year_of_passed_line_status",
+   "fieldname": "date_of_joining_line_status",
    "fieldtype": "Select",
-   "label": "Year of Passed:Line Status",
+   "label": "Date of Joining:Line Status",
    "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
    "options": "\nPositive\nNegative\nDilemma",
    "permlevel": 1,
    "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
   },
   {
-   "fieldname": "communication_skill_line_status",
+   "fieldname": "date_of_relieving_line_status",
    "fieldtype": "Select",
-   "label": "Communication Skill:Line Status",
+   "label": "Date of Relieving:Line Status",
    "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
    "options": "\nPositive\nNegative\nDilemma",
    "permlevel": 1,
    "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
   },
   {
-   "fieldname": "credit_score_line_status",
+   "fieldname": "relieving_status_line_status",
    "fieldtype": "Select",
-   "label": "Credit Score:Line Status",
+   "label": "Relieving Status:Line Status",
+   "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
+   "options": "\nPositive\nNegative\nDilemma",
+   "permlevel": 1,
+   "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
+  },
+  {
+   "fieldname": "reason_for_leaving_line_status",
+   "fieldtype": "Select",
+   "label": "Reason for Leaving:Line Status",
+   "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
+   "options": "\nPositive\nNegative\nDilemma",
+   "permlevel": 1,
+   "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
+  },
+  {
+   "fieldname": "ctc_drawn_line_status",
+   "fieldtype": "Select",
+   "label": "CTC Drawn - Per Year ( in Lakhs):Line Status",
+   "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
+   "options": "\nPositive\nNegative\nDilemma",
+   "permlevel": 1,
+   "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
+  },
+  {
+   "fieldname": "character_and_conduct_line_status",
+   "fieldtype": "Select",
+   "label": "Character and Conduct:Line Status",
+   "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
+   "options": "\nPositive\nNegative\nDilemma",
+   "permlevel": 1,
+   "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
+  },
+  {
+   "fieldname": "behavior_with_colleagues_line_status",
+   "fieldtype": "Select",
+   "label": "Behavior with Colleagues:Line Status",
+   "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
+   "options": "\nPositive\nNegative\nDilemma",
+   "permlevel": 1,
+   "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
+  },
+  {
+   "fieldname": "reporting_persons_name_line_status",
+   "fieldtype": "Select",
+   "label": "Reporting Person's Name:Line Status",
+   "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
+   "options": "\nPositive\nNegative\nDilemma",
+   "permlevel": 1,
+   "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
+  },
+  {
+   "fieldname": "reporting_persons_designation_line_status",
+   "fieldtype": "Select",
+   "label": "Reporting Person's Designation:Line Status",
+   "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
+   "options": "\nPositive\nNegative\nDilemma",
+   "permlevel": 1,
+   "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
+  },
+  {
+   "fieldname": "gaps_in_employment_line_status",
+   "fieldtype": "Select",
+   "label": "Gaps in Employment:Line Status",
    "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
    "options": "\nPositive\nNegative\nDilemma",
    "permlevel": 1,
@@ -597,9 +789,9 @@
    "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
   },
   {
-   "fieldname": "designation_line_status",
+   "fieldname": "verifier_designation_line_status",
    "fieldtype": "Select",
-   "label": "Designation:Line Status",
+   "label": "Verifier Designation:Line Status",
    "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
    "options": "\nPositive\nNegative\nDilemma",
    "permlevel": 1,
@@ -624,7 +816,7 @@
    "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
   },
   {
-   "fieldname": "section_break_77",
+   "fieldname": "section_break_98",
    "fieldtype": "Section Break"
   },
   {
@@ -633,7 +825,7 @@
    "label": "Remarks"
   },
   {
-   "fieldname": "column_break_79",
+   "fieldname": "column_break_100",
    "fieldtype": "Column Break"
   },
   {
@@ -656,7 +848,7 @@
    "read_only_depends_on": "eval:doc.workflow_state!=\"Draft\""
   },
   {
-   "fieldname": "column_break_83",
+   "fieldname": "column_break_104",
    "fieldtype": "Column Break"
   },
   {
@@ -692,7 +884,7 @@
    "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
   },
   {
-   "fieldname": "column_break_88",
+   "fieldname": "column_break_109",
    "fieldtype": "Column Break",
    "permlevel": 1
   },
@@ -714,7 +906,7 @@
    "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
   },
   {
-   "fieldname": "section_break_91",
+   "fieldname": "section_break_112",
    "fieldtype": "Section Break"
   },
   {
@@ -726,7 +918,7 @@
    "read_only_depends_on": "eval:doc.workflow_state ==\"Approved\""
   },
   {
-   "fieldname": "column_break_93",
+   "fieldname": "column_break_114",
    "fieldtype": "Column Break"
   },
   {
@@ -740,10 +932,10 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-03-27 16:32:32.359657",
+ "modified": "2021-03-27 11:17:17.668079",
  "modified_by": "Administrator",
  "module": "Checkpro",
- "name": "Education",
+ "name": "Employment",
  "owner": "Administrator",
  "permissions": [
   {

@@ -1,7 +1,7 @@
 {
  "actions": [],
- "autoname": "Address Check-.###",
- "creation": "2021-03-25 18:05:38.283327",
+ "autoname": "Criminal-.###",
+ "creation": "2021-03-25 18:00:59.126626",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
@@ -36,54 +36,57 @@
   "epi_pincode",
   "epi_district",
   "epi_state",
-  "epi_period_of_stay",
-  "epi_type_of_resident",
-  "epi_verifier_name",
-  "epi_relation_with_profile",
-  "epi_id_proof_of_verifier",
+  "epi_record_found",
+  "epi_record_description_if_found",
+  "epi_number_of_years_searched",
+  "epi_name_of_police_station",
+  "epi_official_name",
+  "epi_official_designation",
   "epi_verifier_contact_number",
   "epi_verifier_mail_id",
-  "column_break_40",
+  "column_break_41",
   "vpi_address",
   "vpi_pincode",
   "vpi_district",
   "vpi_state",
-  "vpi_period_of_stay",
-  "vpi_type_of_resident",
-  "vpi_verifier_name",
-  "vpi_relation_with_profile",
-  "vpi_id_proof_of_verifier",
+  "vpi_record_found",
+  "vpi_record_description_if_found",
+  "vpi_number_of_years_searched",
+  "vpi_name_of_police_station",
+  "vpi_official_name",
+  "vpi_official_designation",
   "vpi_verifier_contact_number",
   "vpi_verifier_mail_id",
-  "column_break_54",
+  "column_break_56",
   "address_line_status",
   "pincode_line_status",
   "district_line_status",
   "state_line_status",
-  "period_of_stay_line_status",
-  "type_of_resident_line_status",
-  "verifier_name_line_status",
-  "relation_with_profile_line_status",
-  "id_proof_of_verifier_line_status",
+  "record_found_line_status",
+  "record_description_if_found_line_status",
+  "number_of_years_searched_line_status",
+  "name_of_police_station_line_status",
+  "official_name_line_status",
+  "official_designation_line_status",
   "verifier_contact_number_line_status",
   "verifier_mail_id_line_status",
-  "section_break_68",
+  "section_break_71",
   "remarks",
-  "column_break_70",
+  "column_break_73",
   "attachment",
   "entry_details_section",
   "entered_by",
-  "column_break_74",
+  "column_break_77",
   "entry_designation",
   "verification_details_section",
   "verified_by",
   "designation",
-  "column_break_79",
+  "column_break_82",
   "start_date",
   "date_of_completion",
-  "section_break_82",
+  "section_break_85",
   "approved_by",
-  "column_break_84",
+  "column_break_87",
   "approved_designation"
  ],
  "fields": [
@@ -288,41 +291,46 @@
    "read_only_depends_on": "eval:doc.workflow_state!=\"Draft\""
   },
   {
-   "description": "(example:01/2000-05/2006)",
-   "fieldname": "epi_period_of_stay",
+   "fieldname": "epi_record_found",
    "fieldtype": "Data",
-   "label": "EPI :Period of Stay From-To",
+   "label": "EPI :Record Found",
+   "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Draft\"",
+   "read_only_depends_on": "eval:doc.workflow_state!=\"Draft\""
+  },
+  {
+   "fieldname": "epi_record_description_if_found",
+   "fieldtype": "Data",
+   "label": "EPI :Record Description if Found",
+   "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Draft\"",
+   "read_only_depends_on": "eval:doc.workflow_state!=\"Draft\""
+  },
+  {
+   "description": "(example:2000-2004)",
+   "fieldname": "epi_number_of_years_searched",
+   "fieldtype": "Data",
+   "label": "EPI :Number of Years Searched From -To",
    "mandatory_depends_on": "eval:!doc.__islocal && doc.workflow_state ==\"Draft\"",
    "read_only_depends_on": "eval:doc.workflow_state!=\"Draft\""
   },
   {
-   "fieldname": "epi_type_of_resident",
-   "fieldtype": "Select",
-   "label": "EPI :Type of Resident",
-   "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Draft\"",
-   "options": "\nRented\nOwn",
-   "read_only_depends_on": "eval:doc.workflow_state!=\"Draft\""
-  },
-  {
-   "fieldname": "epi_verifier_name",
+   "fieldname": "epi_name_of_police_station",
    "fieldtype": "Data",
-   "label": "EPI :Verifier Name",
+   "label": "EPI :Name of Police Station",
    "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Draft\"",
    "read_only_depends_on": "eval:doc.workflow_state!=\"Draft\""
   },
   {
-   "fieldname": "epi_relation_with_profile",
+   "fieldname": "epi_official_name",
    "fieldtype": "Data",
-   "label": "EPI :Relation with Profile",
+   "label": "EPI :Official Name",
    "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Draft\"",
    "read_only_depends_on": "eval:doc.workflow_state!=\"Draft\""
   },
   {
-   "fieldname": "epi_id_proof_of_verifier",
-   "fieldtype": "Select",
-   "label": "EPI :ID Proof of Verifier",
+   "fieldname": "epi_official_designation",
+   "fieldtype": "Data",
+   "label": "EPI :Official Designation",
    "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Draft\"",
-   "options": "\nAadhar Card\nRation Card\nVoters ID\nPassport\nJob ID\nOthers",
    "read_only_depends_on": "eval:doc.workflow_state!=\"Draft\""
   },
   {
@@ -342,7 +350,7 @@
    "read_only_depends_on": "eval:doc.workflow_state!=\"Draft\""
   },
   {
-   "fieldname": "column_break_40",
+   "fieldname": "column_break_41",
    "fieldtype": "Column Break"
   },
   {
@@ -379,45 +387,51 @@
    "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
   },
   {
-   "description": "(example:01/2000-05/2006)",
-   "fieldname": "vpi_period_of_stay",
+   "fieldname": "vpi_record_found",
    "fieldtype": "Data",
-   "label": "VPI:Period of Stay From -To",
+   "label": "VPI:Record Found",
    "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
    "permlevel": 1,
    "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
   },
   {
-   "fieldname": "vpi_type_of_resident",
-   "fieldtype": "Select",
-   "label": "VPI:Type of Resident",
-   "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
-   "options": "\nRented\nOwn",
-   "permlevel": 1,
-   "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
-  },
-  {
-   "fieldname": "vpi_verifier_name",
+   "fieldname": "vpi_record_description_if_found",
    "fieldtype": "Data",
-   "label": "VPI:Verifier Name",
+   "label": "VPI:Record Description if Found",
    "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
    "permlevel": 1,
    "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
   },
   {
-   "fieldname": "vpi_relation_with_profile",
+   "description": "(example:2000-2004)",
+   "fieldname": "vpi_number_of_years_searched",
    "fieldtype": "Data",
-   "label": "VPI:Relation with Profile",
+   "label": "VPI:Number of Years Searched From -To",
    "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
    "permlevel": 1,
    "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
   },
   {
-   "fieldname": "vpi_id_proof_of_verifier",
-   "fieldtype": "Select",
-   "label": "VPI:ID Proof of Verifier",
+   "fieldname": "vpi_name_of_police_station",
+   "fieldtype": "Data",
+   "label": "VPI:Name of Police Station",
    "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
-   "options": "\nAadhar Card\nRation Card\nVoters ID\nPassport\nJob ID\nOthers",
+   "permlevel": 1,
+   "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
+  },
+  {
+   "fieldname": "vpi_official_name",
+   "fieldtype": "Data",
+   "label": "VPI:Official Name",
+   "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
+   "permlevel": 1,
+   "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
+  },
+  {
+   "fieldname": "vpi_official_designation",
+   "fieldtype": "Data",
+   "label": "VPI:Official Designation",
+   "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
    "permlevel": 1,
    "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
   },
@@ -440,7 +454,7 @@
    "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
   },
   {
-   "fieldname": "column_break_54",
+   "fieldname": "column_break_56",
    "fieldtype": "Column Break",
    "permlevel": 1
   },
@@ -481,45 +495,54 @@
    "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
   },
   {
-   "fieldname": "period_of_stay_line_status",
+   "fieldname": "record_found_line_status",
    "fieldtype": "Select",
-   "label": "Period of Stay:Line Status",
+   "label": "Record Found:Line Status",
    "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
    "options": "\nPositive\nNegative\nDilemma",
    "permlevel": 1,
    "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
   },
   {
-   "fieldname": "type_of_resident_line_status",
+   "fieldname": "record_description_if_found_line_status",
    "fieldtype": "Select",
-   "label": "Type of Resident:Line Status",
+   "label": "Record Description if Found:Line Status",
    "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
    "options": "\nPositive\nNegative\nDilemma",
    "permlevel": 1,
    "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
   },
   {
-   "fieldname": "verifier_name_line_status",
+   "fieldname": "number_of_years_searched_line_status",
    "fieldtype": "Select",
-   "label": "Verifier Name:Line Status",
+   "label": "Number of Years Searched:Line Status",
    "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
    "options": "\nPositive\nNegative\nDilemma",
    "permlevel": 1,
    "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
   },
   {
-   "fieldname": "relation_with_profile_line_status",
+   "fieldname": "name_of_police_station_line_status",
    "fieldtype": "Select",
-   "label": "Relation with Profile:Line Status",
+   "label": "Name of Police Station:Line Status",
    "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
    "options": "\nPositive\nNegative\nDilemma",
    "permlevel": 1,
    "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
   },
   {
-   "fieldname": "id_proof_of_verifier_line_status",
+   "fieldname": "official_name_line_status",
    "fieldtype": "Select",
-   "label": "ID Proof of Verifier:Line Status",
+   "label": "Official Name:Line Status",
+   "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
+   "options": "\nPositive\nNegative\nDilemma",
+   "permlevel": 1,
+   "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
+  },
+  {
+   "fieldname": "official_designation_line_status",
+   "fieldtype": "Select",
+   "label": "Official Designation:Line Status",
    "mandatory_depends_on": "eval:!doc.__islocal&&doc.workflow_state ==\"Pending for Verification\"",
    "options": "\nPositive\nNegative\nDilemma",
    "permlevel": 1,
@@ -544,7 +567,7 @@
    "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
   },
   {
-   "fieldname": "section_break_68",
+   "fieldname": "section_break_71",
    "fieldtype": "Section Break"
   },
   {
@@ -553,7 +576,7 @@
    "label": "Remarks"
   },
   {
-   "fieldname": "column_break_70",
+   "fieldname": "column_break_73",
    "fieldtype": "Column Break"
   },
   {
@@ -576,7 +599,7 @@
    "read_only_depends_on": "eval:doc.workflow_state!=\"Draft\""
   },
   {
-   "fieldname": "column_break_74",
+   "fieldname": "column_break_77",
    "fieldtype": "Column Break"
   },
   {
@@ -612,7 +635,7 @@
    "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
   },
   {
-   "fieldname": "column_break_79",
+   "fieldname": "column_break_82",
    "fieldtype": "Column Break",
    "permlevel": 1
   },
@@ -634,7 +657,7 @@
    "read_only_depends_on": "eval:doc.workflow_state ==\"Pending for Approval\"||doc.workflow_state ==\"Approved\""
   },
   {
-   "fieldname": "section_break_82",
+   "fieldname": "section_break_85",
    "fieldtype": "Section Break"
   },
   {
@@ -646,7 +669,7 @@
    "read_only_depends_on": "eval:doc.workflow_state ==\"Approved\""
   },
   {
-   "fieldname": "column_break_84",
+   "fieldname": "column_break_87",
    "fieldtype": "Column Break"
   },
   {
@@ -660,10 +683,10 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-03-27 16:47:03.026111",
+ "modified": "2021-03-27 16:48:19.029041",
  "modified_by": "Administrator",
  "module": "Checkpro",
- "name": "Address Check",
+ "name": "Criminal",
  "owner": "Administrator",
  "permissions": [
   {

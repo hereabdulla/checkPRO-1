@@ -6,7 +6,7 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "customer",
+  "client",
   "check_package",
   "batch",
   "entry_status",
@@ -48,16 +48,6 @@
  ],
  "fields": [
   {
-   "fetch_from": "batch.customer",
-   "fieldname": "customer",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Customer",
-   "options": "Client",
-   "read_only": 1
-  },
-  {
    "fetch_from": "batch.check_package",
    "fieldname": "check_package",
    "fieldtype": "Link",
@@ -87,7 +77,7 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Case Execution Report",
-   "options": "Pending\nPositive\nNegative\nDilemma\nInterim",
+   "options": "Pending\nPositive\nAlert\nDilemma\nInterim",
    "permlevel": 1,
    "read_only": 1
   },
@@ -318,15 +308,21 @@
    "fieldtype": "Data",
    "hidden": 1,
    "label": "No of cases"
+  },
+  {
+   "fetch_from": "batch.customer",
+   "fieldname": "client",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Customer",
+   "options": "Client",
+   "read_only": 1
   }
  ],
  "is_submittable": 1,
  "links": [],
-<<<<<<< HEAD
- "modified": "2021-03-05 19:24:50.619247",
-=======
- "modified": "2021-03-05 11:13:07.957094",
->>>>>>> b905aa19a3840fc71aca9c7a679b29f3eba6f7fc
+ "modified": "2021-03-15 14:11:57.908340",
  "modified_by": "Administrator",
  "module": "Checkpro",
  "name": "Case",

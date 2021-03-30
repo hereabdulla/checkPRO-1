@@ -24,12 +24,12 @@ frappe.ui.form.on("Batch", {
 			frm.trigger('make_dashboard');
 		}
 	},
-	customer: function (frm) {
+	client: function (frm) {
 		frappe.call({
 			"method": "frappe.client.get_list",
 			args: {
 				"doctype": "Check Package",
-				"customer": frm.doc.customer,
+				"client": frm.doc.client,
 				// "fields": ["name"]
 			},
 			callback: function (r) {
@@ -37,7 +37,7 @@ frappe.ui.form.on("Batch", {
 					frm.set_query("check_package", function () {
 						return {
 							"filters": {
-								"customer": frm.doc.customer
+								"client": frm.doc.client
 							}
 						};
 					});
